@@ -1,8 +1,8 @@
 import {CityType} from "../02/02_02_obj";
-import {addMoneyBudget} from "./03";
+import {addMoneyBudget, repairHouse, toFireStaff, toHireStaff} from "./03";
 
 let city2: CityType;
-beforeEach(()=>{
+beforeEach(() => {
     city2 = {
         title: "NewYork",
         houses: [
@@ -40,14 +40,33 @@ beforeEach(()=>{
     }
 })
 
-test("Budget should be changed for HOSPITAL", ()=>{
+test("Budget should be changed for HOSPITAL", () => {
     addMoneyBudget(city2.governmentBuilding[0], 100000);
 
     expect(city2.governmentBuilding[0].budget).toBe(300000);
 })
 
-test("Budget should be changed for FIRE-STATION", ()=>{
+test("Budget should be changed for FIRE-STATION", () => {
     addMoneyBudget(city2.governmentBuilding[1], -100000);
 
     expect(city2.governmentBuilding[1].budget).toBe(400000);
+})
+
+test("House should be repared", () => {
+    repairHouse(city2.houses[1]);
+
+    expect(city2.houses[1].repaired).toBeTruthy()
+})
+
+
+test("Staff should be increased", () => {
+    toFireStaff(city2.governmentBuilding[0], 20);
+
+    expect(city2.governmentBuilding[0].staffCount).toBe(180);
+})
+
+test("House should ber repared", () => {
+    toHireStaff(city2.governmentBuilding[0], 20);
+
+    expect(city2.governmentBuilding[0].staffCount).toBe(220);
 })
