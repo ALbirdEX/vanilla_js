@@ -15,7 +15,7 @@ beforeEach(() => {
                 countryTitle: "Belarus",
             }
         },
-        techologies: [
+        technologies: [
             {
                 id: 1,
                 title: "HTML"
@@ -33,13 +33,13 @@ beforeEach(() => {
 })
 
 test("new tech skill chould be added to student", () => {
-    expect(student.techologies.length).toBe(3);
+    expect(student.technologies.length).toBe(3);
 
     addSkill(student, "JS");
 
-    expect(student.techologies.length).toBe(4);
-    expect(student.techologies[3].title).toBe("JS");
-    expect(student.techologies[3].id).toBeDefined()
+    expect(student.technologies.length).toBe(4);
+    expect(student.technologies[3].title).toBe("JS");
+    expect(student.technologies[3].id).toBeDefined()
 })
 
 test("student should be made active", () => {

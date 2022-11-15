@@ -9,6 +9,7 @@ export type HouseType = {
     buildedAt: number
     repaired: boolean
     address: AddressType
+    id?: number
 }
 export type GovernmentBuildingType = {
     type: "HOSPITAL" | "FIRE-STATION"
