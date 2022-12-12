@@ -2,6 +2,7 @@ import {CityType} from "../02/02_02_obj";
 import {addMoneyBudget, repairHouse, toFireStaff, toHireStaff} from "./03";
 
 let city2: CityType;
+
 beforeEach(() => {
     city2 = {
         title: "NewYork",
@@ -36,7 +37,7 @@ beforeEach(() => {
                 }
             }
         ],
-        citizenNumber: 1000000
+        citizenNumber: 1000001
     }
 })
 

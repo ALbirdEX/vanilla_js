@@ -1,4 +1,4 @@
-import {ManType} from "./Destructuring";
+import {ManType} from "./07_destructuring";
 
 let props: ManType;
 
@@ -38,13 +38,15 @@ test("distruct", () => {
     expect(t).toBe("Dimitrova");
 })
 
-test("rest ", () => {
+test("restOperator work", () => {
     const l1 = props.lessons[0];
     const l2 = props.lessons[1];
 
     const [ls1, ls2] = props.lessons  // [] так как массив,  const [,,ls3] = props.lessons если надо 3 элемент
+
     const [lsn1, ...restLessons] = props.lessons  // взять 1, а остальное запихать в restLessons через ...restLessons rest оператор
     const [, lsn2, ...restLessons1] = props.lessons  // пропускаем первый, берем второй, все остальное в restLessons1
+    const [, , lsn3] = props.lessons
 
     expect(l1.title).toBe("1")
     expect(l2.title).toBe("2")
@@ -61,6 +63,10 @@ test("rest ", () => {
     expect(lsn2.title).toBe("2")
     expect(restLessons1[0].title).toBe("3")
     expect(restLessons1.length).toBe(1)
+
+    expect(lsn3.name).toBe("React")
+    expect(lsn3.title).toBe("3")
+    expect(lsn3).toStrictEqual({title: "3", name: "React"})
 
     expect(restLessons1[0]).toStrictEqual({title: "3", name: "React"})
 })
